@@ -6,6 +6,7 @@ class request:
             data += sock.recv(8192)
 
         data=data.decode()
+        #print(data)
         split1=data.split("\r\n\r\n")
         self.body=split1[1]
         self.header=split1[0].split("\r\n")
@@ -18,7 +19,6 @@ class request:
         for line in self.header:
             if "Content-Length" in line:
                 recvsize=line[line.index(":"):line.index("\r\n")]
-        print(recvsize)
         if  not recvsize==-1:
             data+=sock.recv(recvsize).decode()
 
