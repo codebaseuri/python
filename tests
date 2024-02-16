@@ -1,0 +1,20 @@
+import random 
+
+sum1=0
+sum2=0
+numbers=[0,0]
+
+
+    
+for i in range(1000000):
+    numbers[0]=random.randint(0,568875) 
+    second=random.randint(0,1)
+    if second==1:
+        numbers[1]=numbers[0]*56
+    else:
+        numbers[1]=numbers[0]/56
+    random.shuffle(numbers)
+    sum1+=numbers[0]
+    sum2+=numbers[1]
+    
+print(sum2/sum1)
